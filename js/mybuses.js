@@ -81,10 +81,10 @@ function updateBusStatus(busObj){
       // If any changed data was provided, we'll use that, otherwise skip all the computation
       if(buses.vehicle) {
         // Remove buses from plot for which location has changed
-        svg.selectAll("." + busTagClassName).data(buses.vehicle, function(d){ return d.id; }).remove();
+        gBuses.selectAll("." + busTagClassName).data(buses.vehicle, function(d){ return d.id; }).remove();
 
         // if vehicles have statuses since last time, then show the updated bus loc.
-        svg.selectAll("." + busTagClassName).data(buses.vehicle, function(d){ return d.id; })
+        gBuses.selectAll("." + busTagClassName).data(buses.vehicle, function(d){ return d.id; })
            .enter().append("ellipse")
            .attr("class", busTagClassName)
            .attr("cx", function(d){ return projection([d.lon,])[0]; })

@@ -40,6 +40,8 @@ var gArter = svg.append("g").attr("height", height).attr("width", width);
 var gStree = svg.append("g").attr("height", height).attr("width", width);
 // layer for labels
 var gLabels = svg.append("g").attr("height", height).attr("width", width);
+// SVG for drawing the buses
+var gBuses = svg.append("g").attr("height", height).attr("width", width);
 
 // Supporting variables
 var neighEnabled = false; // track whether the neighborhoods are displayed
@@ -83,7 +85,7 @@ function setupNeighborhoods() {
   gNeigh.selectAll(".neigh-path")
      .data(sfCityNeighborhood.features)
      .enter()
-     .append("path")
+     .append("svg:path")
      .attr("class", "neigh-path")
      .attr("d", path)
      .attr("fill", "#F0EDE5")
@@ -138,7 +140,7 @@ function setupArteries() {
     gArter.selectAll(".arter-path")
        .data(sfCityArteries.features)
        .enter()
-       .append("path")
+       .append("svg:path")
        .attr("class", "arter-path")
        .attr("d", path)
        .attr("fill", "none")
@@ -162,7 +164,7 @@ function setupStreets() {
     gStree.selectAll(".street-path")
        .data(sfCityStreets.features)
        .enter()
-       .append("path")
+       .append("svg:path")
        .attr("class", "street-path")
        .attr("d", path)
        .attr("fill", "none")
@@ -194,7 +196,11 @@ function getBoundsAndScale(aFeature) {
  */
 function zoomed() {
   // translate and scale the map with correct transform values
-  svg.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+  gNeigh.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+  gArter.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+  gStree.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+  gLabels.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+  gBuses.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
 
   // if zoomed in enough, then show the arterial roads
   if (d3.event.scale > 2 && !arteriesEnabled) {

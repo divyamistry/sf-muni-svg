@@ -1,0 +1,44 @@
+body {
+  padding-top: 70px;
+}
+
+/* put some border around main sections */
+.row {
+  border-width: thin;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #EEEEEE;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* limit the size of info view. */
+.info-panel {
+  height: 300px;
+  overflow-y: auto;
+}
+
+/* list of checkboxes in small panel */
+#sf-route-picker {
+  height: 500px;
+  overflow-y: scroll;
+}
+
+/* label of route tags should look bold and align with checkbox */
+.route-tag-label {
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+/* The message counter for each of the routes is pushed on the edge */
+.route-msg-counter {
+  float: right;
+  width: 50px;
+}
+
+/* smaller text size of message */
+#route-messages {
+  font-size: 0.9em;
+}

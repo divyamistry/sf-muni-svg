@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="css/mynextbus.css" />
+
+    <script type="text/javascript" src="js/lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lib/d3.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.xml2json.js"></script>
+    <!-- geoJSON implementation using non-transition SVG -->
+    <title>San Francisco MUNI Tracker</title>
+  </head>
+  <body>
+    <!-- START Navigation bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Where's MUNI</a>
+          <ul class="nav navbar-nav">
+            <li><a>A D3 + GeoJSON implementation using SVG and Interval Update</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END Navigation bar -->
+
+    <!-- START app related content -->
+    <div class="container">
+
+      <div class="row"> <!-- Route picker and map -->
+        <div class="col-md-4" id="sf-route-picker"> <!-- route picker -->
+          <span class="glyphicon glyphicon-bed" aria-hidden="true"></span> Pick routes to see their progress.
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="">Sample checkbox</input>
+            </label>
+          </div>
+        </div> <!-- /route picker -->
+        <div class="col-md-8" id="sf-svg-map"> <!-- map -->
+        </div> <!-- /map -->
+      </div> <!-- /Route picker and map -->
+
+
+      <div class="row info-panel"> <!-- instruction and more details -->
+        <div class="col-md-4" style="padding-top: 50px;"> <!-- program info -->
+          <dl class="dl-horizontal">
+            <dt>Author</dt> <dd>Divya Mistry</dd>
+            <dt>Date</dt> <dd>9/2015</dd>
+            <dt>Source</dt> <dd><a href="https://github.com/divyamistry/sf-muni-te" target="_blank">Github</a></dd>
+          </dl>
+        </div> <!-- /program info -->
+        <div class="col-md-8" id="bus-details"> <!-- route messages -->
+          <table class="table table-condensed">
+            <colgroup>
+              <col class="col-md-2"></col>
+              <col class="col-md-4"></col>
+              <col class="col-md-6"></col>
+              <thead>
+                <th>Route tag</th>
+                <th>Stop name</th>
+                <th>Message</th>
+              </thead>
+              <tbody id="route-messages">
+                <!-- routes and their messages -->
+              </tbody>
+            </colgroup>
+          </table>
+        </div> <!-- /route messages -->
+      </div> <!-- instruction and more details -->
+
+    </div>
+    <!-- END app related content -->
+
+    <!-- my scripts -->
+    <script type="text/javascript" src="js/mymaps.js"></script>
+    <script type="text/javascript" src="js/mybuses.js"></script>
+    <!-- /my scripts -->
+  </body>
+</html>

@@ -12,7 +12,7 @@ var nBAllMessages = null;
 // Route message priority. This is matched against the Bootstrap coloring
 var nBMessagePriority = {"Low":"info", "Normal":"warning", "High":"danger"};
 // Bus status should be updated this many seconds later
-var statusDelayTimer = 5;
+var statusDelayTimer = 15;
 // Buses are shows using circles, and this is the radius of those circles.
 //   It'll be updated as needed.
 var busRadius = 5;

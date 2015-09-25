@@ -124,7 +124,8 @@ function populateRoutePicker(){
     // Based on all the click selection, add or remove the buses from map
     $("#sf-route-picker").on('change', 'input[type="checkbox"]', function(){
       if(true === $(this).prop("checked")){ // when the checkbox is checked
-        // update the map with bus routes
+        // show the bus status, then update the map periodically with new bus route locations.
+        updateBusStatus($(this));
         $(this).data("runnerid",window.setInterval(updateBusStatus, statusDelayTimer*1000, $(this)));
         // update the messages table with route messages if any
         showRelevantMessages($(this).data("tag"));
